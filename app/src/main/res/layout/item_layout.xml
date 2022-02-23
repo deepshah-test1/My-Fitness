@@ -1,230 +1,239 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideLineTop"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="16dp"/>
+    <data>
+        <variable
+            name="result"
+            type="com.myfitness.models.Result" />
+    </data>
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideLineEnd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_end="8dp"/>
-
-
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/ivImage"
-        android:layout_width="84dp"
-        android:layout_height="84dp"
-        android:src="@drawable/profile"
-        app:layout_constraintTop_toBottomOf="@id/guideLineTop"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="16dp"
-        android:layout_marginStart="8dp"/>
-
-    <TextView
-        android:id="@+id/tvFirstName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="First"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/guideLineTop"
-        app:layout_constraintStart_toEndOf="@id/ivImage"
-        android:layout_marginTop="8dp"
-        android:layout_marginStart="8dp"/>
-
-    <TextView
-        android:id="@+id/tvLastName"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="LastName"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/guideLineTop"
-        app:layout_constraintStart_toEndOf="@id/tvFirstName"
-        app:layout_constraintEnd_toStartOf="@id/btnDetails"
-        android:layout_marginTop="8dp"
-        android:layout_marginStart="8dp"/>
-
-    <ImageView
-        android:id="@+id/ivCalendarIcon"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:src="@drawable/ic_calendar"
-        app:layout_constraintTop_toBottomOf="@id/tvFirstName"
-        app:layout_constraintStart_toEndOf="@id/ivImage"
-        android:layout_marginTop="16dp"
-        android:layout_marginStart="8dp"/>
-
-    <TextView
-        android:id="@+id/tvDate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="00-00-0000"
-        app:layout_constraintTop_toTopOf="@id/ivCalendarIcon"
-        app:layout_constraintStart_toEndOf="@id/ivCalendarIcon"
-        app:layout_constraintBottom_toBottomOf="@id/ivCalendarIcon"
-        android:layout_marginStart="4dp"/>
-
-    <ImageView
-        android:id="@+id/ivYogaIcon"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:src="@drawable/ic_yoga_icon"
-        app:layout_constraintTop_toBottomOf="@id/ivCalendarIcon"
-        app:layout_constraintStart_toEndOf="@id/ivImage"
-        android:layout_marginTop="16dp"
-        android:layout_marginStart="8dp"/>
-
-    <TextView
-        android:id="@+id/tvYoga"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Yoga"
-        app:layout_constraintTop_toTopOf="@id/ivYogaIcon"
-        app:layout_constraintStart_toEndOf="@id/ivYogaIcon"
-        app:layout_constraintBottom_toBottomOf="@id/ivYogaIcon"
-        android:layout_marginStart="4dp"/>
-
-
-    <ImageView
-        android:id="@+id/ivLocationIcon"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:src="@drawable/ic_location"
-        app:layout_constraintTop_toBottomOf="@id/ivYogaIcon"
-        app:layout_constraintStart_toEndOf="@id/ivImage"
-        android:layout_marginTop="16dp"
-        android:layout_marginStart="8dp"/>
-
-    <TextView
-        android:id="@+id/tvStreetNo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="0000"
-        app:layout_constraintTop_toTopOf="@id/ivLocationIcon"
-        app:layout_constraintStart_toEndOf="@id/ivLocationIcon"
-        app:layout_constraintBottom_toBottomOf="@id/ivLocationIcon"
-        android:layout_marginStart="4dp"/>
-
-    <TextView
-        android:id="@+id/tvStreetName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Main Street"
-        app:layout_constraintTop_toTopOf="@id/tvStreetNo"
-        app:layout_constraintStart_toEndOf="@id/tvStreetNo"
-        app:layout_constraintBottom_toBottomOf="@id/tvStreetNo"
-        android:layout_marginStart="4dp"/>
-
-    <TextView
-        android:id="@+id/tvCity"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Ahmedabad"
-        app:layout_constraintTop_toTopOf="@id/tvStreetNo"
-        app:layout_constraintStart_toEndOf="@id/tvStreetName"
-        app:layout_constraintEnd_toStartOf="@id/ivTelegramIcon"
-        android:layout_marginStart="4dp"/>
-
-    <TextView
-        android:id="@+id/tvState"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Gujarat"
-        app:layout_constraintTop_toBottomOf="@id/tvStreetNo"
-        app:layout_constraintStart_toStartOf="@id/tvStreetNo"/>
-
-    <TextView
-        android:id="@+id/tvCountry"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="India"
-        app:layout_constraintTop_toTopOf="@id/tvState"
-        app:layout_constraintStart_toEndOf="@id/tvState"
-        android:layout_marginStart="4dp"/>
-
-    <Button
-        android:id="@+id/btnDetails"
-        android:layout_width="125dp"
-        android:layout_height="40dp"
-        android:text="Details"
-        app:backgroundTint="@color/black"
-        android:background="@drawable/button_background"
-        app:layout_constraintTop_toTopOf="@id/guideLineTop"
-        app:layout_constraintEnd_toStartOf="@id/guideLineEnd"
-        android:layout_marginTop="8dp"/>
-
-    <TextView
-        android:id="@+id/tvTime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="07:30 AM"
-        app:layout_constraintTop_toBottomOf="@id/btnDetails"
-        app:layout_constraintEnd_toStartOf="@id/guideLineEnd"
-        android:layout_marginTop="8dp"/>
-
-    <ImageView
-        android:id="@+id/ivTimeIcon"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:src="@drawable/ic_time"
-        app:layout_constraintTop_toBottomOf="@id/btnDetails"
-        app:layout_constraintEnd_toStartOf="@id/tvTime"
-        android:layout_marginTop="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="4dp"/>
-
-    <TextView
-        android:id="@+id/tvRs"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="$49.99"
-        app:layout_constraintTop_toBottomOf="@id/tvTime"
-        app:layout_constraintStart_toEndOf="@id/ivRsIcon"
-        android:layout_marginTop="8dp"
-        android:layout_marginStart="4dp"/>
-
-    <ImageView
-        android:id="@+id/ivRsIcon"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:src="@drawable/ic_rs"
-        app:layout_constraintTop_toBottomOf="@id/tvTime"
-        app:layout_constraintStart_toStartOf="@id/ivTimeIcon"
-        android:layout_marginTop="8dp"/>
-
-    <ImageView
-        android:id="@+id/ivTelegramIcon"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:src="@drawable/telegram_icon"
-        app:layout_constraintTop_toBottomOf="@id/ivRsIcon"
-        app:layout_constraintEnd_toEndOf="@id/guideLineEnd"
-        android:layout_marginTop="8dp"/>
-
-    <View
-        android:id="@+id/line"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:background="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-       app:layout_constraintEnd_toStartOf="@id/guideLineEnd"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvState" />
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideLineTop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="16dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideLineEnd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="8dp" />
 
 
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/ivImage"
+            android:layout_width="84dp"
+            android:layout_height="84dp"
+            android:src="@drawable/profile"
+            app:layout_constraintTop_toBottomOf="@id/guideLineTop"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="8dp"
+            android:profileImageUrl="@{result.picture.thumbnail}"/>
+
+        <TextView
+            android:id="@+id/tvFirstName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{result.name.first}"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/guideLineTop"
+            app:layout_constraintStart_toEndOf="@id/ivImage"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="8dp" />
+
+        <TextView
+            android:id="@+id/tvLastName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{result.name.last}"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/guideLineTop"
+            app:layout_constraintStart_toEndOf="@id/tvFirstName"
+            app:layout_constraintEnd_toStartOf="@id/btnDetails"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="8dp" />
+
+        <ImageView
+            android:id="@+id/ivCalendarIcon"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_calendar"
+            app:layout_constraintTop_toBottomOf="@id/tvFirstName"
+            app:layout_constraintStart_toEndOf="@id/ivImage"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="8dp" />
+
+        <TextView
+            android:id="@+id/tvDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="00-00-0000"
+            app:layout_constraintTop_toTopOf="@id/ivCalendarIcon"
+            app:layout_constraintStart_toEndOf="@id/ivCalendarIcon"
+            app:layout_constraintBottom_toBottomOf="@id/ivCalendarIcon"
+            android:layout_marginStart="4dp"
+            android:formattedDate="@{result.registered.date}"/>
+
+        <ImageView
+            android:id="@+id/ivYogaIcon"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_yoga_icon"
+            app:layout_constraintTop_toBottomOf="@id/ivCalendarIcon"
+            app:layout_constraintStart_toEndOf="@id/ivImage"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="8dp" />
+
+        <TextView
+            android:id="@+id/tvYoga"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Yoga"
+            app:layout_constraintTop_toTopOf="@id/ivYogaIcon"
+            app:layout_constraintStart_toEndOf="@id/ivYogaIcon"
+            app:layout_constraintBottom_toBottomOf="@id/ivYogaIcon"
+            android:layout_marginStart="4dp" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageView
+            android:id="@+id/ivLocationIcon"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_location"
+            app:layout_constraintTop_toBottomOf="@id/ivYogaIcon"
+            app:layout_constraintStart_toEndOf="@id/ivImage"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="8dp" />
+
+        <TextView
+            android:id="@+id/tvStreetNo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{result.location.street.number.toString()}"
+            app:layout_constraintTop_toTopOf="@id/ivLocationIcon"
+            app:layout_constraintStart_toEndOf="@id/ivLocationIcon"
+            app:layout_constraintBottom_toBottomOf="@id/ivLocationIcon"
+            android:layout_marginStart="4dp" />
+
+        <TextView
+            android:id="@+id/tvStreetName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{result.location.street.name}"
+            app:layout_constraintTop_toTopOf="@id/tvStreetNo"
+            app:layout_constraintStart_toEndOf="@id/tvStreetNo"
+            app:layout_constraintBottom_toBottomOf="@id/tvStreetNo"
+            android:layout_marginStart="4dp" />
+
+        <TextView
+            android:id="@+id/tvCity"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{result.location.city}"
+            app:layout_constraintTop_toTopOf="@id/tvStreetNo"
+            app:layout_constraintStart_toEndOf="@id/tvStreetName"
+            app:layout_constraintEnd_toStartOf="@id/ivTelegramIcon"
+            android:layout_marginStart="4dp" />
+
+        <TextView
+            android:id="@+id/tvState"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{result.location.state}"
+            app:layout_constraintTop_toBottomOf="@id/tvStreetNo"
+            app:layout_constraintStart_toStartOf="@id/tvStreetNo" />
+
+        <TextView
+            android:id="@+id/tvCountry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{result.location.country}"
+            app:layout_constraintTop_toTopOf="@id/tvState"
+            app:layout_constraintStart_toEndOf="@id/tvState"
+            android:layout_marginStart="4dp" />
+
+        <Button
+            android:id="@+id/btnDetails"
+            android:layout_width="125dp"
+            android:layout_height="40dp"
+            android:text="Details"
+            app:backgroundTint="@color/black"
+            android:background="@drawable/button_background"
+            app:layout_constraintTop_toTopOf="@id/guideLineTop"
+            app:layout_constraintEnd_toStartOf="@id/guideLineEnd"
+            android:layout_marginTop="8dp" />
+
+        <TextView
+            android:id="@+id/tvTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="07:30 AM"
+            app:layout_constraintTop_toBottomOf="@id/btnDetails"
+            app:layout_constraintEnd_toStartOf="@id/guideLineEnd"
+            android:layout_marginTop="8dp" />
+
+        <ImageView
+            android:id="@+id/ivTimeIcon"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_time"
+            app:layout_constraintTop_toBottomOf="@id/btnDetails"
+            app:layout_constraintEnd_toStartOf="@id/tvTime"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="4dp" />
+
+        <TextView
+            android:id="@+id/tvRs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="$49.99"
+            app:layout_constraintTop_toBottomOf="@id/tvTime"
+            app:layout_constraintStart_toEndOf="@id/ivRsIcon"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="4dp" />
+
+        <ImageView
+            android:id="@+id/ivRsIcon"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_rs"
+            app:layout_constraintTop_toBottomOf="@id/tvTime"
+            app:layout_constraintStart_toStartOf="@id/ivTimeIcon"
+            android:layout_marginTop="8dp" />
+
+        <ImageView
+            android:id="@+id/ivTelegramIcon"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/telegram_icon"
+            app:layout_constraintTop_toBottomOf="@id/ivRsIcon"
+            app:layout_constraintEnd_toEndOf="@id/guideLineEnd"
+            android:layout_marginTop="8dp" />
+
+        <View
+            android:id="@+id/line"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/guideLineEnd"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvState" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

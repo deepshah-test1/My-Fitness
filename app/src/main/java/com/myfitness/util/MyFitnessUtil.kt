@@ -7,6 +7,7 @@ class MyFitnessUtil {
 
     companion object{
 
+        /*
         fun formatDate(strDate : String) : String{
 
             var format1 = SimpleDateFormat("yyyy-MM-dd")
@@ -18,5 +19,9 @@ class MyFitnessUtil {
             return formattedDate
 
         }
+
+         */
+
+
     }
 }

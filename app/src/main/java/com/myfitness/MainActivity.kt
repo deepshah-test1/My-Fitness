@@ -8,27 +8,31 @@ import android.view.View
 import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
 import androidx.core.widget.NestedScrollView
+import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.gson.Gson
 import com.myfitness.adapters.UserRvAdapter
+import com.myfitness.databinding.ActivityMainBinding
 import com.myfitness.repository.Resource
 import com.myfitness.viewmodel.MyFitnessViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-
     private val viewModel : MyFitnessViewModel by viewModels()
     private val userRvAdapter : UserRvAdapter by lazy { UserRvAdapter() }
     var page : Int = 1
+
+    private lateinit var binding : ActivityMainBinding
 
 
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = DataBindingUtil.setContentView(this,R.layout.activity_main)
+
 
         rvUserList.adapter = userRvAdapter
         rvUserList.layoutManager = LinearLayoutManager(this)

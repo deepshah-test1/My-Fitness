@@ -8,20 +8,29 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.core.app.ActivityCompat
+import androidx.databinding.DataBindingUtil
 import com.bumptech.glide.Glide
+import com.myfitness.databinding.ActivityBookingUserDetailsBinding
 import com.myfitness.models.Result
+import com.myfitness.util.Constants.Companion.KEY
 import kotlinx.android.synthetic.main.activity_booking_user_details.*
 import kotlinx.android.synthetic.main.item_layout.view.*
 
 class BookingUserDetailsActivity : AppCompatActivity() {
+
+    private lateinit var binding : ActivityBookingUserDetailsBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_booking_user_details)
+        binding = DataBindingUtil.setContentView(this,R.layout.activity_booking_user_details)
 
-        val result = intent.getParcelableExtra<Result>("Key")
+        val result = intent.getParcelableExtra<Result>(KEY)
+        /*
         val userImageUrl = result?.picture?.large
+        Glide.with(this).load(userImageUrl).into(binding.ivLarge);
+         */
 
-        Glide.with(this).load(userImageUrl).into(ivLarge);
+        binding.result = result
 
 
 

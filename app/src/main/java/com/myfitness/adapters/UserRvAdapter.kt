@@ -11,7 +11,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.myfitness.BookingUserDetailsActivity
 import com.myfitness.R
+import com.myfitness.databinding.ItemLayoutBinding
 import com.myfitness.models.Result
+import com.myfitness.util.Constants.Companion.KEY
 import com.myfitness.util.MyFitnessUtil
 import com.myfitness.viewmodel.MyFitnessViewModel
 import kotlinx.android.synthetic.main.item_layout.view.*
@@ -26,23 +28,22 @@ class UserRvAdapter() : RecyclerView.Adapter<UserRvAdapter.UserViewHolder>() {
     private lateinit var context : Context
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_layout,parent,false)
         context = parent.context
-        return UserViewHolder(view)
+        return UserViewHolder.from(parent)
     }
 
     override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
-        holder.itemView.tvFirstName.text = results[position].name?.first
-        holder.itemView.tvLastName.text = results[position].name?.last
-
         /*
         var format1 = SimpleDateFormat("yyyy-MM-dd")
         var format2 = SimpleDateFormat("dd-MM-yyyy")
 
         var date : Date = format1.parse(results[position].registered?.date)
         var formattedDate = format2.format(date)
-
          */
+        /*
+        holder.itemView.tvFirstName.text = results[position].name?.first
+        holder.itemView.tvLastName.text = results[position].name?.last
+
         var formattedDate = results[position].registered?.date?.let { MyFitnessUtil.formatDate(it) }
 
         holder.itemView.tvDate.text = formattedDate
@@ -60,6 +61,15 @@ class UserRvAdapter() : RecyclerView.Adapter<UserRvAdapter.UserViewHolder>() {
             context.startActivity(intent)
         }
 
+         */
+        val currentItem = results[position]
+        holder.bind(currentItem)
+
+        holder.itemView.btnDetails.setOnClickListener {
+            val intent = Intent(context,BookingUserDetailsActivity::class.java)
+            intent.putExtra(KEY,results[position])
+            context.startActivity(intent)
+        }
 
     }
 
@@ -76,9 +86,20 @@ class UserRvAdapter() : RecyclerView.Adapter<UserRvAdapter.UserViewHolder>() {
         userListDiffResult.dispatchUpdatesTo(this)
     }
 
-    class UserViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
+    class UserViewHolder(private val binding: ItemLayoutBinding) : RecyclerView.ViewHolder(binding.root){
 
+        fun bind(result : Result){
+            binding.result = result
+            binding.executePendingBindings()
+        }
 
+        companion object{
+            fun from(parent: ViewGroup) : UserViewHolder{
+                val layoutInflater = LayoutInflater.from(parent.context)
+                val binding = ItemLayoutBinding.inflate(layoutInflater,parent,false)
+                return UserViewHolder(binding)
+            }
+        }
     }
 
 }

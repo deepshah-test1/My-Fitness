@@ -1,59 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nestedSV"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <data>
 
-    <com.facebook.shimmer.ShimmerFrameLayout
-        android:id="@+id/shimmerFrameLayout"
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedSV"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
-        android:orientation="vertical">
+        tools:context=".MainActivity">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="match_parent">
 
-            <include layout="@layout/shimmer_item_layout"/>
-            <include layout="@layout/shimmer_item_layout"/>
-            <include layout="@layout/shimmer_item_layout"/>
-            <include layout="@layout/shimmer_item_layout"/>
-            <include layout="@layout/shimmer_item_layout"/>
-            <include layout="@layout/shimmer_item_layout"/>
-            <include layout="@layout/shimmer_item_layout"/>
-            <include layout="@layout/shimmer_item_layout"/>
-            <include layout="@layout/shimmer_item_layout"/>
-            <include layout="@layout/shimmer_item_layout"/>
-            <include layout="@layout/shimmer_item_layout"/>
-            <include layout="@layout/shimmer_item_layout"/>
-            <include layout="@layout/shimmer_item_layout"/>
-            <include layout="@layout/shimmer_item_layout"/>
-            <include layout="@layout/shimmer_item_layout"/>
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/shimmerFrameLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
 
-        </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
-    </com.facebook.shimmer.ShimmerFrameLayout>
+                    <include layout="@layout/shimmer_item_layout" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvUserList"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:visibility="gone"
-        android:nestedScrollingEnabled="false"/>
+                    <include layout="@layout/shimmer_item_layout" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                    <include layout="@layout/shimmer_item_layout" />
 
-</androidx.core.widget.NestedScrollView>
+                    <include layout="@layout/shimmer_item_layout" />
+
+                    <include layout="@layout/shimmer_item_layout" />
+
+                    <include layout="@layout/shimmer_item_layout" />
+
+                    <include layout="@layout/shimmer_item_layout" />
+
+                    <include layout="@layout/shimmer_item_layout" />
+
+                    <include layout="@layout/shimmer_item_layout" />
+
+                    <include layout="@layout/shimmer_item_layout" />
+
+                    <include layout="@layout/shimmer_item_layout" />
+
+                    <include layout="@layout/shimmer_item_layout" />
+
+                    <include layout="@layout/shimmer_item_layout" />
+
+                    <include layout="@layout/shimmer_item_layout" />
+
+                    <include layout="@layout/shimmer_item_layout" />
+
+                </LinearLayout>
+
+            </com.facebook.shimmer.ShimmerFrameLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvUserList"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:visibility="gone"
+                android:nestedScrollingEnabled="false" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+</layout>

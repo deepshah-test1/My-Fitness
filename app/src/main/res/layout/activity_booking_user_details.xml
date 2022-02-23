@@ -1,115 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/purple_200"
-    tools:context=".BookingUserDetailsActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <ImageView
-        android:id="@+id/ivLarge"
+    <data>
+        <variable
+            name="result"
+            type="com.myfitness.models.Result" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:src="@drawable/profile"
-        android:scaleType="fitXY"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/tvBioHeading"/>
+        android:layout_height="match_parent"
+        android:background="@color/purple_200"
+        tools:context=".BookingUserDetailsActivity">
 
-    <TextView
-        android:id="@+id/btnBook"
-        android:layout_width="90dp"
-        android:layout_height="90dp"
-        android:text="BOOK"
-        android:textStyle="bold"
-        android:textColor="@color/white"
-        android:gravity="center"
-        android:background="@drawable/button_round"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="@id/ivLarge"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="24dp"/>
+        <ImageView
+            android:id="@+id/ivLarge"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:src="@drawable/profile"
+            android:scaleType="fitXY"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/tvBioHeading"
+            android:profileImageUrl="@{result.picture.large}"/>
 
-    <TextView
-        android:id="@+id/btnContact"
-        android:layout_width="90dp"
-        android:layout_height="90dp"
-        android:text="CONTACT"
-        android:textColor="@color/white"
-        android:gravity="center"
-        android:textStyle="bold"
-        android:background="@drawable/button_round"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="@id/ivLarge"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="24dp"/>
+        <TextView
+            android:id="@+id/btnBook"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:text="BOOK"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:background="@drawable/button_round"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/ivLarge"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="24dp" />
 
-    <TextView
-        android:id="@+id/tvBioHeading"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Bio"
-        android:drawablePadding="8dp"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        android:drawableStart="@drawable/ic_bio"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        app:layout_constraintTop_toBottomOf="@id/ivLarge"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/tvBioContent"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"/>
+        <TextView
+            android:id="@+id/btnContact"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:text="CONTACT"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:background="@drawable/button_round"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/ivLarge"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="24dp" />
 
-    <TextView
-        android:id="@+id/tvBioContent"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:maxLines="5"
-        android:textColor="@color/white"
-       android:lineSpacingExtra="5dp"
-        app:layout_constraintTop_toBottomOf="@id/tvBioHeading"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/tvPhone"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="24dp"/>
+        <TextView
+            android:id="@+id/tvBioHeading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bio"
+            android:drawablePadding="8dp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:drawableStart="@drawable/ic_bio"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintTop_toBottomOf="@id/ivLarge"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/tvBioContent"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp" />
 
-    <TextView
-        android:id="@+id/tvPhone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="+1 125 125 1250"
-        android:drawableStart="@drawable/ic_call"
-        android:drawablePadding="8dp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/tvBioContent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/tvEmail"
-        android:layout_marginTop="16dp"
-        android:layout_marginStart="24dp"/>
+        <TextView
+            android:id="@+id/tvBioContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:maxLines="5"
+            android:textColor="@color/white"
+            android:lineSpacingExtra="5dp"
+            app:layout_constraintTop_toBottomOf="@id/tvBioHeading"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/tvPhone"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="24dp" />
 
-    <TextView
-        android:id="@+id/tvEmail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="johntribbiyani23@gmail.com"
-        android:drawableStart="@drawable/ic_email"
-        android:drawablePadding="8dp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/tvPhone"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginTop="16dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginBottom="24dp"/>
+        <TextView
+            android:id="@+id/tvPhone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+1 125 125 1250"
+            android:drawableStart="@drawable/ic_call"
+            android:drawablePadding="8dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/tvBioContent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/tvEmail"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="24dp" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/tvEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="johntribbiyani23@gmail.com"
+            android:drawableStart="@drawable/ic_email"
+            android:drawablePadding="8dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/tvPhone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginBottom="24dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
