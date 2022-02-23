@@ -2,6 +2,7 @@ package com.myfitness.viewmodel
 
 import android.app.Application
 import android.os.Build
+import android.util.Log
 import androidx.annotation.RequiresApi
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
@@ -28,6 +29,7 @@ class MyFitnessViewModel(application: Application) : AndroidViewModel(applicatio
     fun getUserList(page : Int, results : Int) {
         viewModelScope.launch(Dispatchers.IO) {
             repository.getUserList(page, results)
+            Log.e("TAG","API CALL")
         }
     }
 }

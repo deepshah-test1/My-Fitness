@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.View
 import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
+import androidx.core.widget.NestedScrollView
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -21,6 +22,7 @@ class MainActivity : AppCompatActivity() {
 
     private val viewModel : MyFitnessViewModel by viewModels()
     private val userRvAdapter : UserRvAdapter by lazy { UserRvAdapter() }
+    var page : Int = 1
 
 
     @RequiresApi(Build.VERSION_CODES.M)
@@ -51,6 +53,25 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         })
+
+        nestedSV.setOnScrollChangeListener(object : NestedScrollView.OnScrollChangeListener{
+
+            override fun onScrollChange(
+                v: NestedScrollView?,
+                scrollX: Int,
+                scrollY: Int,
+                oldScrollX: Int,
+                oldScrollY: Int
+            ) {
+               if(scrollY == v?.getChildAt(0)?.measuredHeight?.minus(v.measuredHeight) ?: v?.getChildAt(0)?.measuredHeight){
+                   page++
+                   viewModel.getUserList(page,10)
+               }
+            }
+
+
+        })
+
 
     }
 }
