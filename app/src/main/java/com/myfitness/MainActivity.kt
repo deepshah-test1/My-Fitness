@@ -30,13 +30,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
         rvUserList.adapter = userRvAdapter
         rvUserList.layoutManager = LinearLayoutManager(this)
 
         viewModel.userLiveData.observe(this, Observer {
             when(it){
                 is Resource.Loading -> {
+                    Log.e("Loading","Loading")
                     rvUserList.visibility = View.GONE
                     shimmerFrameLayout.visibility = View.VISIBLE
                 }
@@ -49,6 +49,7 @@ class MainActivity : AppCompatActivity() {
                 }
                 is Resource.Error -> {
                     shimmerFrameLayout.visibility = View.GONE
+                    rvUserList.visibility = View.VISIBLE
                     Log.e("API Error",it.errorMessage.toString())
                 }
             }
@@ -69,9 +70,6 @@ class MainActivity : AppCompatActivity() {
                }
             }
 
-
         })
-
-
     }
 }

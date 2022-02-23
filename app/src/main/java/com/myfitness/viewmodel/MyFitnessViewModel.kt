@@ -28,8 +28,8 @@ class MyFitnessViewModel(application: Application) : AndroidViewModel(applicatio
     @RequiresApi(Build.VERSION_CODES.M)
     fun getUserList(page : Int, results : Int) {
         viewModelScope.launch(Dispatchers.IO) {
+            Log.e("getUserListRequest",page.toString())
             repository.getUserList(page, results)
-            Log.e("TAG","API CALL")
         }
     }
 }

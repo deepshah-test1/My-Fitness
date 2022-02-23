@@ -13,12 +13,6 @@ import retrofit2.Response
 
 class MyFitnessRepository(private val applicationContext : Context) {
 
-    /*
-    suspend fun getUserList(page : Int, results : Int) =
-        RetrofitInstance.api.getUserList(page, results)
-
-     */
-
     val userMutableLiveData = MutableLiveData<Resource<UserResponse>>()
 
     val userLiveData : LiveData<Resource<UserResponse>>
@@ -27,6 +21,8 @@ class MyFitnessRepository(private val applicationContext : Context) {
 
     @RequiresApi(Build.VERSION_CODES.M)
     suspend fun getUserList(page : Int, results : Int) {
+
+        userMutableLiveData.postValue(Resource.Loading())
 
         if(NetworkUtils.isOnline(applicationContext)){
             try {
@@ -38,7 +34,6 @@ class MyFitnessRepository(private val applicationContext : Context) {
 
             catch(e : Exception){
                 userMutableLiveData.postValue(Resource.Error(e.message.toString()))
-
             }
         }
     }
