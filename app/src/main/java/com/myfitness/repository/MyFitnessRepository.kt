@@ -36,5 +36,8 @@ class MyFitnessRepository(private val applicationContext : Context) {
                 userMutableLiveData.postValue(Resource.Error(e.message.toString()))
             }
         }
+        else{
+            userMutableLiveData.postValue(Resource.Error("No Internet"))
+        }
     }
 }

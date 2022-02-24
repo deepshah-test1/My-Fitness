@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
 import androidx.core.widget.NestedScrollView
@@ -55,6 +56,7 @@ class MainActivity : AppCompatActivity() {
                     shimmerFrameLayout.visibility = View.GONE
                     rvUserList.visibility = View.VISIBLE
                     Log.e("API Error",it.errorMessage.toString())
+                    Toast.makeText(this,""+it.errorMessage,Toast.LENGTH_LONG).show()
                 }
             }
         })
