@@ -57,11 +57,14 @@
             android:text="@{result.name.last}"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textStyle="bold"
+            android:singleLine="true"
+            android:ellipsize="end"
             app:layout_constraintTop_toBottomOf="@id/guideLineTop"
             app:layout_constraintStart_toEndOf="@id/tvFirstName"
             app:layout_constraintEnd_toStartOf="@id/btnDetails"
             android:layout_marginTop="8dp"
-            android:layout_marginStart="8dp" />
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"/>
 
         <ImageView
             android:id="@+id/ivCalendarIcon"
@@ -140,10 +143,13 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@{result.location.city}"
+            android:ellipsize="end"
+            android:singleLine="true"
             app:layout_constraintTop_toTopOf="@id/tvStreetNo"
             app:layout_constraintStart_toEndOf="@id/tvStreetName"
             app:layout_constraintEnd_toStartOf="@id/ivTelegramIcon"
-            android:layout_marginStart="4dp" />
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="8dp"/>
 
         <TextView
             android:id="@+id/tvState"
@@ -160,7 +166,8 @@
             android:text="@{result.location.country}"
             app:layout_constraintTop_toTopOf="@id/tvState"
             app:layout_constraintStart_toEndOf="@id/tvState"
-            android:layout_marginStart="4dp" />
+            android:layout_marginStart="4dp"
+            android:ellipsize="end"/>
 
         <Button
             android:id="@+id/btnDetails"
