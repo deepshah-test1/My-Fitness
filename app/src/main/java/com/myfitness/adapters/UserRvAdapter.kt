@@ -82,6 +82,7 @@ class UserRvAdapter() : RecyclerView.Adapter<UserRvAdapter.UserViewHolder>() {
         val userListDiffUtil = UserListDiffUtil(results,userList)
         val userListDiffResult = DiffUtil.calculateDiff(userListDiffUtil)
         this.results.addAll(userList as ArrayList<Result>)
+        notifyDataSetChanged()
 
         userListDiffResult.dispatchUpdatesTo(this)
     }
